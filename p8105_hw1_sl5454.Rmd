@@ -4,7 +4,11 @@ output: html_document
 date: "2024-09-12"
 ---
 
-#Problem 1
+```{r}
+library(tidyverse)
+```
+
+##Problem 1
 
 ```{r problem_1}
 data("penguins", package = "palmerpenguins")
@@ -14,13 +18,16 @@ num_col = ncol(penguins)
 mean_flipper_length = mean(penguins$flipper_length_mm, na.rm = TRUE)
 summary(penguins)
 
-#The penguins dataset contains observations of three species of penguins collected from #three islands.The dataset includes sex, years, and various physical measurements of the 
-#penguins, such as flipper length, which has an average value of 200.9152.The dataset consists of 344 #rows and 8 columns, but some measurements contain missing data.
-
 ggplot(penguins, aes(x = bill_length_mm, y = flipper_length_mm, color = species)) +
-  geom_point()
+  geom_point() +
+  labs(title = "Flipper Length vs Bill Length",
+       x = "Bill Length (mm)",
+       y = "Flipper Length (mm)")
 
+ggsave("flipper_vs_bill_scatterplot.pdf")
 ```
+The penguins dataset contains observations of three species of penguins collected from three islands.The dataset includes sex, years, and various physical measurements of the 
+penguins, such as flipper length, which has an average value of 200.9152.The dataset consists of 344 #rows and 8 columns, but some measurements contain missing data.
 
 
 
