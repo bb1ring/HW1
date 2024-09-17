@@ -26,8 +26,19 @@ ggplot(penguins, aes(x = bill_length_mm, y = flipper_length_mm, color = species)
 
 ggsave("flipper_vs_bill_scatterplot.pdf")
 ```
-The penguins dataset contains observations of three species of penguins collected from three islands.The dataset includes sex, years, and various physical measurements of the 
+The penguins data set contains observations of three species of penguins collected from three islands.The data set includes sex, years, and various physical measurements of the 
 penguins, such as flipper length, which has an average value of 200.9152.The dataset consists of 344 #rows and 8 columns, but some measurements contain missing data.
 
+##Problem 2
+
+```{r}
+p2_df =
+  tibble(
+    sample = rnorm(n = 10),
+    log_samp = sample > 0,
+    char_vector = sample(letters, 10, replace = TRUE),
+    f_vector = factor(sample(c("level1", "level2", "level3"), 10, replace = TRUE))
+  )
+```
 
 
