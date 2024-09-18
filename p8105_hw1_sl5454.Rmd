@@ -56,7 +56,21 @@ mean_fact = mean(f_vec)
 The mean of a random sample and a logical vector can be calculated because they are numerical vectors.
 The mean of a character vector and a factor vector with 3 different factor “levels” can't be calculated because they are character vectors.
 
-```{r}
-
+```{r, echo = TRUE, results = hide}
+num_log = as.numeric(p2_df[["log_samp"]])
+num_char = as.numeric(p2_df[["char_vector"]])
+num_f = as.numeric(p2_df[["f_vector"]])
 ```
+
+The "as.numeric" function converts logical values to numbers as below:
+"TRUE" becomes "1", and "FALSE" becomes "0"
+This conversion works because logical values are binary. The means can be calulated after the conversion and the result represents the proportion of "TRUE" in the vector.
+
+The "as.numeric" function converts character vectors to "NA" because a character can't be represented by numbers. Thus, calculating the mean of character vectors will fail or produce "NA".
+
+The "as.numeric" function converts levels of factor vectors to corresponding numbers as follows:
+"level 1" becomes "1"
+"level 2" becomes "2"
+"level 3" becomes "3"
+This conversion works because different levels can indicated by numbers. However, these numbers don't have the meanings as factor levels do. Thus, the means of factor vectors is not meaningful.
 
