@@ -40,18 +40,23 @@ p2_df =
     f_vector = factor(sample(c("level1", "level2", "level3"), 10, replace = TRUE))
   )
 
-sample_vec = p2_df %>% pull(sample)
+sample_vec = pull(p2_df, sample)
 mean_samp = mean(sample_vec)
 
-log_samp_vec = p2_df %>% pull(log_samp)
+log_samp_vec = pull(p2_df, log_samp)
 mean_log = mean(log_samp_vec)
 
-char_vec = p2_df %>% pull(char_vector)
+char_vec = pull(p2_df, char_vector)
 mean_char = mean(char_vec)
 
-f_vec = p2_df %>% pull(f_vector)
+f_vec = pull(p2_df, f_vector)
 mean_fact = mean(f_vec)
 ```
 
 The mean of a random sample and a logical vector can be calculated because they are numerical vectors.
 The mean of a character vector and a factor vector with 3 different factor “levels” can't be calculated because they are character vectors.
+
+```{r}
+
+```
+
