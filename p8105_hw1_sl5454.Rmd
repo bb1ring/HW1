@@ -29,7 +29,7 @@ ggplot(penguins, aes(x = bill_length_mm, y = flipper_length_mm, color = species)
 ggsave("flipper_vs_bill_scatterplot.pdf")
 ```
 The penguins data set contains observations of three species of penguins collected from three islands.The data set includes sex, years, and various physical measurements of the 
-penguins, such as flipper length, which has an average value of 200.9152.The dataset consists of 344 #rows and 8 columns, but some measurements contain missing data.
+penguins, such as flipper length, which has an average value of 200.9152.The dataset consists of 344 rows and 8 columns, but some measurements contain missing data.
 
 ##Problem 2
 
@@ -55,10 +55,12 @@ f_vec = pull(p2_df, f_vector)
 mean_fact = mean(f_vec)
 ```
 
-The mean of a random sample and a logical vector can be calculated because they are numerical vectors.
-The mean of a character vector and a factor vector with 3 different factor “levels” can't be calculated because they are character vectors.
+The mean of a random sample can be calculated because they are numerical vectors.
+Since "TRUE" is treated as 1 and "FALSE" as 0 in R, calculating the mean of a logical vector is also valid and gives the proportion of "TRUE" values.
+The mean of a character vector can't be calculated because it is a text data.
+The mean of a factor vector with 3 different factor “levels” can't be calculated because factors are categorical, not numerical data.
 
-```{r, echo = TRUE, results = hide}
+```{r, eval=FALSE}
 num_log = as.numeric(p2_df[["log_samp"]])
 num_char = as.numeric(p2_df[["char_vector"]])
 num_f = as.numeric(p2_df[["f_vector"]])
@@ -74,5 +76,5 @@ The "as.numeric" function converts levels of factor vectors to corresponding num
 "level 1" becomes "1"
 "level 2" becomes "2"
 "level 3" becomes "3"
-This conversion works because different levels can indicated by numbers. However, these numbers don't have the meanings as factor levels do. Thus, the means of factor vectors is not meaningful.
+This conversion works because different levels can indicated by numbers. However, these numbers don't have the same meanings as factor levels do. Thus, the means of factor vectors is not meaningful.
 
